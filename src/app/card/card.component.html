@@ -1,0 +1,85 @@
+<mat-card>
+
+  <div class="title">
+  <mat-card-title *ngIf="!isTimerRunning">
+    EMOM-Timer
+  </mat-card-title>
+
+  <mat-card-title *ngIf="isTimerRunning">
+    Round {{currentRound}} of {{rounds}} input: {{input}}
+  </mat-card-title>
+</div>
+
+<div class="time">
+  <mat-card-content>
+    {{remainingSeconds}}
+  </mat-card-content>
+</div>
+
+<div class="round start">
+  <mat-card-actions *ngIf="!isTimerRunning">
+    <button color="basic" (click)="editRounds(+1)" mat-button mat-raised-button>
+      +1 round
+    </button>
+    <button [disabled]="rounds <= 1" color="basic" (click)="editRounds(-1)" mat-button mat-raised-button>
+      -1 round
+    </button>
+    <button color="primary" (click)="startTimer()" mat-button mat-raised-button>
+      Start {{rounds}} rd(s)
+    </button>
+  </mat-card-actions>
+</div>
+
+
+<div class="run">
+  <mat-card-actions *ngIf="isTimerRunning">
+    <button *ngIf="!isTimerPaused" color="basic" (click)="pause()" mat-button mat-raised-button>
+      Pause
+    </button>
+    <button *ngIf="isTimerPaused" color="basic" (click)="continue()" mat-button mat-raised-button>
+      Continue
+    </button>
+    <button color="basic" (click)="stop()" mat-button mat-raised-button>
+      Stop
+    </button>
+  </mat-card-actions>
+</div>
+
+
+
+<div>
+<input [(ngModel)]="input" />
+</div>
+<div *ngFor="let inputValue of inputValues; let i = index; trackBy: trackByIndex">
+  <input *ngIf="i !== 0" [(ngModel)]="inputValues[i]" />
+</div>
+
+
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inputValue of inputValues; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ inputValue }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- <button (click)="addInput()">Ajouter un input</button> -->
+<!-- <div *ngFor="let input of inputs">
+  <input [(ngModel)]="input.value">
+</div>
+<button (click)="combineInputs()">Combinez les inputs</button>
+<p>Résultat : {{combinedInputs}}</p> -->
+
+
+</mat-card>

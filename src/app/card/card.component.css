@@ -1,0 +1,13 @@
+.mat-card {
+  width: 320px;
+  margin: 2rem auto;
+}
+.mat-card-content {
+  width: 320px;
+  height: 138px;
+  margin: 50px 0;
+  font-size: 120px;
+}
+.mat-card-title, .mat-card-content, .mat-card-actions {
+  text-align: center;
+}
