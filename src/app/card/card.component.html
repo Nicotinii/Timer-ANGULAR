@@ -1,4 +1,3 @@
-<mat-card>
 
   <div class="title">
   <mat-card-title *ngIf="!isTimerRunning">
@@ -18,17 +17,26 @@
 
 <div class="round start">
   <mat-card-actions *ngIf="!isTimerRunning">
-    <button color="basic" (click)="editRounds(+1)" mat-button mat-raised-button>
-      +1 round
+    <button matTooltip="+1 round" mat-fab color="primary" color="basic" (click)="editRounds(+1)">
+      <mat-icon>add</mat-icon>
     </button>
-    <button [disabled]="rounds <= 1" color="basic" (click)="editRounds(-1)" mat-button mat-raised-button>
-      -1 round
+    <button  mat-fab [disabled]="rounds <= 1" color="basic" (click)="editRounds(-1)">
+      <mat-icon>remove</mat-icon>
     </button>
+    <div>
+      <button color="basic" (click)="repeatRounds(1)" mat-button mat-raised-button>
+        repeat
+      </button>
+    </div>
+    <div>
     <button color="primary" (click)="startTimer()" mat-button mat-raised-button>
       Start {{rounds}} rd(s)
     </button>
+  </div>
   </mat-card-actions>
 </div>
+
+
 
 
 <div class="run">
@@ -47,16 +55,15 @@
 
 
 
-<div>
-<input [(ngModel)]="input" />
-</div>
+
 <div *ngFor="let inputValue of inputValues; let i = index; trackBy: trackByIndex">
-  <input *ngIf="i !== 0" [(ngModel)]="inputValues[i]" />
+  <!-- <input [(ngModel)]="inputValues[i]" /> -->
+  <ng-select class="select" [items]="options | filter: searchText" bindLabel="name" bindValue="name" [addTag]="true" [searchable]="true" [(ngModel)]="inputValues[i]"></ng-select>
 </div>
 
 
 
-<div>
+<!-- <div>
   <table>
     <thead>
       <tr>
@@ -71,15 +78,10 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
 
 
-<!-- <button (click)="addInput()">Ajouter un input</button> -->
-<!-- <div *ngFor="let input of inputs">
-  <input [(ngModel)]="input.value">
-</div>
-<button (click)="combineInputs()">Combinez les inputs</button>
-<p>Résultat : {{combinedInputs}}</p> -->
 
 
-</mat-card>
+
+

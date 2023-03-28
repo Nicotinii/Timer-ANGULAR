@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { OPTIONS } from './options';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
+
 export class CardComponent implements OnInit {
   public sixtySeconds = 5;
   public remainingSeconds = this.sixtySeconds;
@@ -14,9 +16,12 @@ export class CardComponent implements OnInit {
   public roundInputs: string[] = [];
   public currentRound = 1;
  
+  inputValues: string[] = [];
+  input: string = this.inputValues[0];
 
-  input: string = "";
-  inputValues: string[] = [this.input];
+
+  baseValues:string[] = [];
+  doubledValues = false;
 
 
 
@@ -86,20 +91,43 @@ export class CardComponent implements OnInit {
 
   public editRounds(increment: number): void {
 
-
     if (this.rounds >= 1) {
       this.rounds = this.rounds + increment;
-      if ( increment === 1) {
+      if ( increment === +1) {
         this.inputValues.push('');
-      }else if (increment != 1) {
+      }else if (increment === -1) {
         this.inputValues.pop();
       }
-
-
+      this.input = this.inputValues[0];
     }
 
+  }
+
+  public repeatRounds(increment: number): void {
+
+      if(increment === 1){
+        if (!this.doubledValues) {
+          const newValues = this.inputValues;
+          this.baseValues = this.inputValues;
+          this.inputValues = this.inputValues.concat(newValues);
+          this.doubledValues = true;
+        } else {
+          this.inputValues = this.inputValues.concat(this.baseValues);
+        }
+        this.rounds = this.rounds + this.baseValues.length;
+    }
 
   }
+
+
+  public options:any[] = OPTIONS;
+  public selectedOption: any;
+  public searchText: string = '';
+
+  public onSearchTextChange(event: any): void {
+    this.searchText = event.target.value;
+  }
+
 
   
   trackByIndex(index: number, item: any) {
@@ -107,25 +135,6 @@ export class CardComponent implements OnInit {
   }
   
 
-
-
-
-
-
-
-
-  // addInput() {
-  //   this.inputs.push({ value: '' });
-  // }
-
-  // combineInputs() {
-  //   this.combinedInputs = '';
-  //   for (let input of this.inputs) {
-  //     this.combinedInputs += input.value + ' ';
-  //   }
-  // }
-
-
-
+  
 
 }

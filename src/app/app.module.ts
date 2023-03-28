@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -7,15 +8,19 @@ import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon'
 import { CardComponent } from './card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +28,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
