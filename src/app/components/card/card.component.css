@@ -1,0 +1,99 @@
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2% 5% 5% 5%;
+
+
+}
+
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding: 5% 10% 5% 10%;
+  border-radius: 20px;
+  border: 0px;
+  border-bottom-left-radius: 0px ;
+  border-bottom-right-radius: 0px ;
+  background: #454545;
+
+  text-align: center;
+  color: #fff;
+}
+.time h1, input.time{
+  font-size: 15em !important;
+}
+
+
+.down{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding: 0% 10% 0% 10%;
+  border-radius: 20px;
+  border-top-left-radius: 0px ;
+  border-top-right-radius: 0px ;
+}
+.start{
+  background: #61ab4a;
+}
+
+.stop{
+  background: #e50000;
+  position: fixed  ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.pause{
+  background: #e5a500;
+}
+
+.continue{
+  background: #61ab4a;
+}
+
+.endFlex{
+display: flex;  
+align-items: flex-end;
+}
+
+.mat-card-title, .mat-card-content, .mat-card-actions {
+  text-align: center;
+}
+
+.input{
+  border-radius: 4px;
+  margin-top: 2%;
+  padding: 4px;
+  font-size: 14px;
+  color: #ffffff;
+  background: #525252 !important;
+}
+
+ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host div{
+  background: #fff !important;
+  color: #333;
+}
+
+
+ng-select{
+  width: 70% !important;
+
+}
+

@@ -2,14 +2,128 @@
 @import '~normalize.css/normalize.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html,
-body {
+html{
     height: 100%;
 }
 
 body {
+    height: 100%;
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     color: aliceblue;
-    background: rgb(34, 34, 34);
+    background: #303030;
+}
+
+.CCflex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.mat-headline-1, .mat-typography .mat-headline-1 {
+margin: 0px;
+}
+
+.mat-headline-2, .mat-typography .mat-headline-2 {
+    margin: 0px;
+    }
+
+.mat-headline-3, .mat-typography .mat-headline-3 {
+    margin: 0px;
+    }
+
+.mat-headline-4, .mat-typography .mat-headline-4 {
+    margin: 0px;
+    }
+
+.mat-headline-5, .mat-typography .mat-headline-5 {
+    margin: 0px;
+    }
+
+.py-5 {
+    padding-top: 5% !important;
+    padding-bottom: 5%;
+}
+
+.py-10 {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.px-5 {
+    padding-left: 5% !important;
+    padding-right: 5%   !important;
+}
+
+.px-10 {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.my-5 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.my-10 {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.mx-5 {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.mx-10 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.md-5{
+    margin-right: 5%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.text-center{
+    text-align: center;
 }

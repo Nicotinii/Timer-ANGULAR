@@ -1,0 +1,119 @@
+<app-menu></app-menu>
+<div class="title">
+
+  <h1 class="mat-headline-2" *ngIf="!isTimerRunning">
+    EMOM
+  </h1>
+  <h1 class="mat-headline-6 text-center" *ngIf="!isTimerRunning">
+    number of rounds {{rounds}} of {{sixtySeconds}} secondes <br> for a total of {{totalTime}} minutes
+  </h1>
+  <h1 class="mat-headline-2" *ngIf="isTimerRunning">
+    Round {{currentRound}}/ {{rounds}}
+  </h1>
+
+  
+</div>
+
+<div class="container">
+
+  <input class="time mat-headline-1" type="number" [(ngModel)]="sixtySeconds" *ngIf="!isTimerRunning">
+  <div class="time" *ngIf="isTimerRunning">
+    <h1 class="mat-headline-1 py-10">{{remainingSeconds}}</h1>
+  </div>
+  <a class="down start" (click)="startTimer()" *ngIf="!isTimerRunning">
+    <div>
+      <h1 class="mat-headline-1">START</h1>
+    </div>
+  </a>
+  <a class="down pause" (click)="pause()" *ngIf="!isTimerPaused && isTimerRunning">
+    <div>
+      <h1 class="mat-headline-1">PAUSE</h1>
+    </div>
+  </a>
+  <a class="down continue" (click)="continue()" *ngIf="isTimerPaused && isTimerRunning ">
+    <div>
+      <h1 class="mat-headline-2">CONTINUE</h1>
+    </div>
+  </a>
+
+</div>
+
+
+<div *ngIf="!isTimerRunning" class="">
+
+  <div class="CCflex py-10">
+    <button class="mx-5 remove" mat-fab [disabled]="rounds <= 1" color="primary" (click)="editRounds(-1)">
+      <mat-icon>remove</mat-icon>
+    </button>
+
+    <button class="mx-5 add" matTooltip="+1 round" mat-fab color="primary" (click)="editRounds(+1)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="CCflex">
+    <button class="repeat mat-headline-5 " color="primary" (click)="repeatRounds(1)" mat-button mat-raised-button>
+      Repeat x{{repeatNumbers}}
+    </button>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="py-5" *ngIf="!isTimerRunning && isRepeatShow">
+
+  <div class="CCflex" *ngFor="let baseValue of baseValues; let i = index; trackBy: trackByIndex">
+    <h1>{{baseValue}}</h1>
+  </div>
+
+</div>
+
+<div class="py-5" *ngIf="!isTimerRunning && !isRepeatShow">
+
+  <div class="CCflex px-5" *ngFor="let inputValue of inputValues; let i = index; trackBy: trackByIndex">
+    <input class="input w-10 md-5" type="number" placeholder="N°" [(ngModel)]="inputValuesNumber[i]" />
+    <ng-select class="input"  [items]="options | filter: searchText" bindLabel="name" bindValue="name" [addTag]="true"
+      [searchable]="true" [(ngModel)]="inputValues[i]"></ng-select>
+  </div>
+
+</div>
+
+<div class="CCflex py-10" >
+<h1 class="mat-headline-2" *ngIf="isTimerRunning">
+  {{inputNumber}} {{input}}
+</h1>
+</div>
+
+
+<a class="stop" (click)="stop()" *ngIf="isTimerRunning">
+  <div>
+    <h1 class="mat-headline-1">STOP</h1>
+  </div>
+</a>
+
+
+
+
+<!--? Test des inputs -->
+<!-- <div>
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inputValue of inputValues; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ inputValue }}</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+</div> -->
