@@ -28,6 +28,7 @@ export class CardComponent{
   repeatNumbers: number = 1;
   isRepeatShow= false;
   baseValues:string[] = [];
+  baseValuesNumber:string[] = [];
   doubledValues = false;
 
   public options:any[] = OPTIONS;
@@ -48,8 +49,11 @@ export class CardComponent{
 
 
   public startTimer(remainingSeconds = this.sixtySeconds): void {
-    this.input = this.inputValues[0];
-    this.inputNumber = this.inputValuesNumber[0];
+    if(this.input === ""){
+      this.input = this.inputValues[0];
+      this.inputNumber = this.inputValuesNumber[0];
+    }
+
     this.remainingSeconds = remainingSeconds;
     this.isTimerRunning = true;
 
@@ -131,9 +135,13 @@ export class CardComponent{
           const newValues = this.inputValues;
           this.baseValues = this.inputValues;
           this.inputValues = this.inputValues.concat(newValues);
+          const newValuesNumber = this.inputValuesNumber;
+          this.baseValuesNumber = this.inputValuesNumber;
+          this.inputValuesNumber = this.inputValuesNumber.concat(newValuesNumber);
           this.doubledValues = true;
         } else {
           this.inputValues = this.inputValues.concat(this.baseValues);
+          this.inputValuesNumber = this.inputValuesNumber.concat(this.baseValuesNumber);
         }
         this.totalTime = parseFloat((this.sixtySeconds/60 * this.rounds).toFixed(1));
         this.isRepeatShow = true;
